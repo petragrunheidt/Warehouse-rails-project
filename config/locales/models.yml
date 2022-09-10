@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      warehouse: 'Galpão'
+      genre: 'Gênero'
+    attributes:
+      book:
+        title: 'Título'
+        author: 'Autora'
+        publication_year: "Ano de publicação"
+        abstract: 'Resumo'
+        genre: 'Gênero'
+      genre:
+        name: 'Novo gênero'
