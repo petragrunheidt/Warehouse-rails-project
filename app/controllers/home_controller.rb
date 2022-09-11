@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
     def index
-        @warehouses = Warehouse.all
+        @warehouse = Warehouse.all
     end
 end

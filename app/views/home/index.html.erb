@@ -1,17 +1,19 @@
-<h1>Galpões & Estoque</h1>
 
+
+<section id='warehouses'>
 <h2>Galpões</h2>
-<% if @warehouses.present?%>
-<% @warehouses.each do | w | %>
+<% if @warehouse.present?%>
+<% @warehouse.each do | w | %>
 
 <h3><%= link_to w.name, warehouse_path(w.id) %></h3>
-<ul>
-<li>Código: <%= w.code %></li>
-<li>Cidade: <%= w.city %></li>
-<li>Área: <%= number_with_delimiter(w.area, :delimiter => '.') %> m²</li>
-</ul>
+<dl>
+<dt>Código: <%= w.code %></dt>
+<dt>Cidade: <%= w.city %></dt>
+<dt>Área: <%= number_with_delimiter(w.area, :delimiter => '.') %> m²</dt>
+</dl>
 
 <% end %>
 <% else %>
 <p>Não existem galpões cadastrados</p>
 <% end%>
+</section>

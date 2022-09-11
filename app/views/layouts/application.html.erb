@@ -10,9 +10,19 @@
     <%= stylesheet_link_tag "application" %>
   </head>
 <nav>
-<%= link_to 'Página Inicial', root_path %>
+<ul>
+<h1>Galpões & Estoque</h1>
+<li><%= link_to 'Página Inicial', root_path %></li>
+<li><%= link_to 'Cadastrar Galpão', new_warehouse_path %></li>
+</ul>
 </nav>
+<header>
+
+</header>
   <body>
     <%= yield %>
   </body>
+<footer>
+<p>Created and developed by a <a href=''>femme lesbian</a></p>
+</footer>
 </html>

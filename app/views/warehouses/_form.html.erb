@@ -1,0 +1,45 @@
+<%= form_with model: warehouse do |w| %>
+<% if @warehouse.errors.any? %>
+
+  <div id="error_explanation">
+    <h2>Todos campos devem ser preenchidos</h2>
+    <ul>
+      <% @warehouse.errors.each do |error| %>
+        <% flash[:notice] = error.full_message%>
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+        
+        <% end %>
+   </ul>
+<% end %>
+  </div>
+<% end %>
+
+<dl>
+<div>
+<dt><%= w.label :name, 'Nome: '%>
+<%= w.text_field :name %></dt>
+</div><div>
+<dt><%= w.label :code, 'Código: '%>
+<%= w.text_field :code %></dt>
+</div><div>
+<dt><%= w.label :city, 'Cidade: '%>
+<%= w.text_field :city %></dt>
+</div><div>
+<dt><%= w.label :address, 'Endereço: '%>
+<%= w.text_field :address %></dt>
+</div><div>
+<dt><%= w.label :cep, 'CEP: '%>
+<%= w.text_field :cep %></dt>
+</div><div>
+<dt><%= w.label :area, 'Area: '%>
+<%= w.number_field :area %></dt>
+</div><div>
+<dt><%= w.label :description, 'Descrição: '%>
+<%= w.text_area :description, size: '60x12' %></dt>
+</div><div>
+<%= w.submit 'Enviar' %>
+</div>
+</dl>
+
+<% end %>
