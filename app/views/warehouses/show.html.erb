@@ -1,0 +1,9 @@
+<h3>Galpão <%= @warehouse.code %></h3>
+<ul>
+<li> <%= @warehouse.name %></li>
+<li>Cidade: <%= @warehouse.city %></li>
+<li>Area: <%= number_with_delimiter(@warehouse.area, :delimiter => '.') %> m²</li>
+<li>Endereço: <%= @warehouse.address %>, CEP: <%= @warehouse.cep %></li>
+<li>Descrição: <%= @warehouse.description %></li>
+</ul>
+
