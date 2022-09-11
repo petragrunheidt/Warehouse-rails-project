@@ -1,9 +1,11 @@
-<h3>Galpão <%= @warehouse.code %></h3>
+<h1>Galpão <%= @warehouse.code %></h1>
+<div>
+<p> <%= @warehouse.name %></p>
 <ul>
-<li> <%= @warehouse.name %></li>
-<li>Cidade: <%= @warehouse.city %></li>
-<li>Area: <%= number_with_delimiter(@warehouse.area, :delimiter => '.') %> m²</li>
-<li>Endereço: <%= @warehouse.address %>, CEP: <%= @warehouse.cep %></li>
-<li>Descrição: <%= @warehouse.description %></li>
-</ul>
+<li><strong>Cidade: </strong><%= @warehouse.city %></li>
+<li><strong>Area: </strong><%= number_with_delimiter(@warehouse.area, :delimiter => '.') %> m²</li>
+<li><strong>Endereço: </strong><%= @warehouse.address %>, <strong>CEP: </strong><%= @warehouse.cep %></li>
+<li><strong>Descrição: </strong><%= @warehouse.description %></li>
+</ul></div>
 
+<%= link_to 'Voltar', root_path %>
