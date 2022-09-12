@@ -16,12 +16,18 @@
 <li><%= link_to 'Cadastrar Galpão', new_warehouse_path %></li>
 </ul>
 </nav>
-<header>
-
-</header>
-  <body>
+<body>
+  <header>
+  </header>
+  <main>
+    <div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
+    </div>
     <%= yield %>
-  </body>
+  </main>
+</body>
 <footer>
 <p>Created and developed by a <a href=''>femme lesbian</a></p>
 </footer>
