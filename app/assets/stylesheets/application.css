@@ -31,8 +31,11 @@
     width: 100%;
  }
 
- span {
-    display: inline-block
+span {
+   display: inline-block;
+   width: 100px;
+   height: 100px;
+   padding: 5px;
  }
 
  footer {

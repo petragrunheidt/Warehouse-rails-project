@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy]# do
   #   patch :publish, on: :member
   #   patch :unpublish, on: :member
-  # end
-  # resources :genres, only: [:show, :new, :create, :destroy]
+  resources :suppliers, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end

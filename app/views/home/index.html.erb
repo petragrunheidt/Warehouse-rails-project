@@ -2,6 +2,11 @@
 
 <section id='warehouses'>
 <h2>Galpões</h2>
+<div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
+</div>
 <% if @warehouse.present?%>
 <% @warehouse.each do | w | %>
 

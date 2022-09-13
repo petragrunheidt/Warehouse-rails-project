@@ -1,0 +1,21 @@
+<section id='suppliers'>
+<h2>Fornecedores</h2>
+<div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
+</div>
+<% if @supplier.present?%>
+<% @supplier.each do | s | %>
+
+<h3><%= link_to s.brand_name, supplier_path(s.id) %></h3>
+<dl>
+<dt><%= s.corporate_name %>
+<dt></dt>
+</dl>
+
+<% end %>
+<% else %>
+<p>Não existem fornecedores cadastrados</p>
+<% end%>
+</section>
