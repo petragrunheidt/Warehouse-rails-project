@@ -47,7 +47,7 @@ RSpec.describe Warehouse, type: :model do
         context 'uniqueness' do
         it 'false when code is already in use' do
             # Arrange
-            warehouse1 = Warehouse.create(name: 'R', code: 'RIO', address: 'rua', 
+            warehouse1 = Warehouse.create!(name: 'R', code: 'RIO', address: 'rua', 
                 cep: '25930-030', city: 'Rio', 
                 area: 0320, description: 'descrição')   
 
