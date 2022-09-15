@@ -17,8 +17,7 @@ class WarehousesController < ApplicationController
         render :new
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
         if @warehouse.update(warehouse_params)

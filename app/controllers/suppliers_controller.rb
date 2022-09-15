@@ -21,8 +21,7 @@ class SuppliersController < ApplicationController
         render :new
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
         if @supplier.update(supplier_params)
