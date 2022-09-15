@@ -9,7 +9,7 @@
 <ul>
 <li><strong>Cidade: </strong><%= @warehouse.city %></li>
 <li><strong>Area: </strong><%= number_with_delimiter(@warehouse.area, :delimiter => '.') %> m²</li>
-<li><strong>Endereço: </strong><%= @warehouse.address %>, <strong>CEP: </strong><%= @warehouse.cep %></li>
+<li><strong>Endereço: </strong><%= @warehouse.address %>, <strong>CEP: </strong><%= @warehouse.cep.insert(5, '-') %></li>
 <li><strong>Descrição: </strong><%= @warehouse.description %></li>
 </ul>
 </div>

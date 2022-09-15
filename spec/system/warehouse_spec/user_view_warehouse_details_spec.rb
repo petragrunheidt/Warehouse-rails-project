@@ -4,7 +4,7 @@ describe 'Usuário vê detalhes de um galpão' do
     it 'e vê informações adicionais' do
         # Arrange
         Warehouse.create(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 120_000, 
-            address: 'Avenida do Aeroporto, 1000', cep: '15000-000', 
+            address: 'Avenida do Aeroporto, 1000', cep: '15000000', 
             description: 'Galpão destinado para cargas internacionais')
         
         # Act
@@ -23,7 +23,7 @@ describe 'Usuário vê detalhes de um galpão' do
     it 'e volta para a tela inicial' do
         # Arrange
         Warehouse.create(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 120_000, 
-            address: 'Avenida do Aeroporto, 1000', cep: '15000-000', 
+            address: 'Avenida do Aeroporto, 1000', cep: '15000000', 
             description: 'Galpão destinado para cargas internacionais')
         
         # Act

@@ -4,7 +4,7 @@ describe 'Usuário edita um galpão' do
     it 'a partir da página de detalhes' do
         # Arrange
         warehouse = Warehouse.create!(name: 'R', code: 'RIO', address: 'rua', 
-                                        cep: '25930-030', city: 'Rio', 
+                                        cep: '25930030', city: 'Rio', 
                                         area: 5320, description: 'descrição')
         
         # Act
@@ -25,7 +25,7 @@ describe 'Usuário edita um galpão' do
     it 'e edita dados do galpão com sucesso' do
         # Arrange
         warehouse = Warehouse.create!(name: 'R', code: 'RID', address: 'rua', 
-            cep: '25930-030', city: 'Rio', 
+            cep: '25930030', city: 'Rio', 
             area: 5320, description: 'descrição')
 
         # Act
@@ -37,7 +37,7 @@ describe 'Usuário edita um galpão' do
         fill_in 'Cidade', with: 'Rio de Janeiro'
         fill_in 'Area', with: '32_000'
         fill_in 'Endereço', with: 'Avenida do Museu do Amanhã, 1000'
-        fill_in 'CEP', with: '20100-000'
+        fill_in 'CEP', with: '20100000'
         fill_in 'Descrição', with: 'Galpão da zona portuária do Rio'
         click_on 'Enviar'
 
@@ -54,7 +54,7 @@ describe 'Usuário edita um galpão' do
     it 'e mantém campos obrigatórios' do
         # Arrange
         warehouse = Warehouse.create!(name: 'R', code: 'RID', address: 'rua', 
-            cep: '25930-030', city: 'Rio', 
+            cep: '25930030', city: 'Rio', 
             area: 5320, description: 'descrição')
 
         # Act

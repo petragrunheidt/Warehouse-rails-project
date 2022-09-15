@@ -30,7 +30,7 @@ describe 'Usuário cadastra um galpão' do
         fill_in 'Cidade', with: 'Rio de Janeiro'
         fill_in 'Area', with: '32_000'
         fill_in 'Endereço', with: 'Avenida do Museu do Amanhã, 1000'
-        fill_in 'CEP', with: '20100-000'
+        fill_in 'CEP', with: '20100000'
         fill_in 'Descrição', with: 'Galpão da zona portuária do Rio'
         click_on 'Enviar'
         
@@ -63,5 +63,24 @@ describe 'Usuário cadastra um galpão' do
         expect(page).to have_content 'Endereço não pode ficar em branco'
         expect(page).to have_content 'CEP não pode ficar em branco'
         expect(page).to have_content 'Descrição não pode ficar em branco'
+    end
+    it 'e encontra um erro ao cadastrar um CEP invalido' do
+    # Arrange
+
+        # Act
+        visit root_path
+        click_on 'Cadastrar Galpão'
+        fill_in 'Nome', with: 'Rio de Janeiro'
+        fill_in 'Código', with: 'RIO'
+        fill_in 'Cidade', with: 'Rio de Janeiro'
+        fill_in 'Area', with: '32_000'
+        fill_in 'Endereço', with: 'Avenida do Museu do Amanhã, 1000'
+        fill_in 'CEP', with: '20100'
+        fill_in 'Descrição', with: 'Galpão da zona portuária do Rio'
+        click_on 'Enviar'
+
+        # Assert
+        expect(page).to have_content 'CEP não possui o tamanho esperado (8 caracteres)'
+
     end
 end
