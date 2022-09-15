@@ -5,6 +5,32 @@ class SuppliersController < ApplicationController
         @supplier = Supplier.all
     end
 
+    def show; end
+
+    def new
+        @supplier = Supplier.new
+    end
+
+    def create
+        @supplier = Supplier.new(supplier_params)
+        
+        if @supplier.save
+            
+            return redirect_to supplier_path(@supplier.id), notice: 'Fornecedor registrado com sucesso!'
+        end
+        render :new
+    end
+
+    def edit
+    end
+
+    def update
+        if @supplier.update(supplier_params)
+            return redirect_to supplier_path(@supplier.id), notice: 'Fornecedor editado com sucesso!'
+        end
+        render :new
+    end
+
     private
 
     def set_supplier

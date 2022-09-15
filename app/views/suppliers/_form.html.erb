@@ -1,0 +1,42 @@
+<%= form_with model: supplier do |s| %>
+<% if @supplier.errors.any? %>
+
+  <div id="error_explanation">
+    <h2>Todos campos devem ser preenchidos</h2>
+    <div>
+      <% @supplier.errors.each do |error| %>
+        <% flash.now[:notice] = error.full_message%>
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+        
+        <% end %>
+   </div>
+<% end %>
+  </div>
+<% end %>
+
+<dl>
+<div>
+<dt><%= s.label :corporate_name, 'Nome corporativo: '%>
+<%= s.text_field :corporate_name %></dt>
+</div><div>
+<dt><%= s.label :brand_name, 'Nome da marca: '%>
+<%= s.text_field :brand_name %></dt>
+</div><div>
+<dt><%= s.label :city, 'Cidade: '%>
+<%= s.text_field :city %></dt>
+</div><div>
+<dt><%= s.label :state, 'Estado: '%>
+<%= s.text_field :state %></dt>
+</div><div>
+<dt><%= s.label :email, 'Email: '%>
+<%= s.text_field :email %></dt>
+</div><div>
+<dt><%= s.label :registration_number, 'Número de registro: '%>
+<%= s.number_field :registration_number %></dt>
+</div>
+<%= s.submit 'Enviar' %>
+</div>
+</dl>
+
+<% end %>

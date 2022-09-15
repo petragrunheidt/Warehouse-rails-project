@@ -1,15 +1,17 @@
-<h1>Galpão <%= @warehouse.code %></h1>
+<h1><%= @supplier.brand_name %></h1>
 <div>
     <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
     <% end %>
 </div>
 <div>
-<p> <%= @warehouse.name %></p>
+<p> <%= @supplier.corporate_name %></p>
 <ul>
-<li><strong>Cidade: </strong><%= @warehouse.city %></li>
-<li><strong>Area: </strong><%= number_with_delimiter(@warehouse.area, :delimiter => '.') %> m²</li>
-<li><strong>Endereço: </strong><%= @warehouse.address %>, <strong>CEP: </strong><%= @warehouse.cep %></li>
-<li><strong>Descrição: </strong><%= @warehouse.description %></li>
+<li><strong>Cidade: </strong><%= @supplier.city %>,<strong> Estado: </strong><%= @supplier.state %></li>
+<li><strong>Email: </strong><%= @supplier.email %></li>
+<li><strong>Número de registro: </strong><%= @supplier.registration_number %>
 </ul>
+<div>
+<%= link_to 'Voltar', suppliers_path %>
+</div>
 </div>
