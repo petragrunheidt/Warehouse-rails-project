@@ -8,10 +8,10 @@
 <% if @product_models.present?%>
 <% @product_models.each do | p | %>
 
-<h3><%= p.name %></h3>
+<h3><%= link_to p.name, product_model_path(p.id) %></h3>
 <dl>
 <dt><%= p.sku %>
-<dt><%= p.supplier %></dt>
+<dt><%= p.supplier.brand_name %></dt>
 </dl>
 <div>
 

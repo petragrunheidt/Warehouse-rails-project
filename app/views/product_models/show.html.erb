@@ -1,0 +1,23 @@
+
+<h1><%= @product_model.name %></h1>
+<div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
+</div>
+<div>
+<ul>
+<h3>Dimensões: </h3>
+<li><strong>Peso: </strong><%= @product_model.weigth %>g</li>
+<li><strong>Largura: </strong><%= @product_model.width %>cm</li>
+<li><strong>Altura: </strong><%= @product_model.heigth %>cm</li>
+<li><strong>Profundidade: </strong><%= @product_model.depth %>cm</li>
+<li><strong>SKU: </strong><%= @product_model.sku %>
+</ul>
+<p>Fornecedor: <%= @product_model.supplier.brand_name %><p>
+</div>
+
+<span>
+<%= link_to 'Voltar', product_model_path %>
+
+</span>
