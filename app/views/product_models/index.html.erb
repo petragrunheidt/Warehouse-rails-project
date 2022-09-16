@@ -1,0 +1,24 @@
+<h1>Modelos de Produtos</h1>
+<section id='product_models'>
+<div>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+    <% end %>
+</div>
+<% if @product_models.present?%>
+<% @product_models.each do | p | %>
+
+<h3><%= p.name %></h3>
+<dl>
+<dt><%= p.sku %>
+<dt><%= p.supplier %></dt>
+</dl>
+<div>
+
+</div>
+
+<% end %>
+<% else %>
+<p>Não existem modelos de produtos cadastrados</p>
+<% end%>
+</section>

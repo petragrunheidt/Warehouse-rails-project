@@ -27,7 +27,7 @@ describe 'Usuário acessa pagina de cadastrar fornecedores' do
         fill_in 'Nome corporativo', with: 'Petra'
         fill_in 'Nome da marca', with: 'PETR'
         fill_in 'Cidade', with: 'Petropolis'
-        fill_in 'Estado', with: 'SP'
+        select 'SP', :from => 'Estado'
         fill_in 'Email', with: 'petramail'
         fill_in 'Número de registro', with: 493028304
         click_on('Enviar')
@@ -53,7 +53,7 @@ describe 'Usuário acessa pagina de cadastrar fornecedores' do
         fill_in 'Nome corporativo', with: 'Petra'
         fill_in 'Nome da marca', with: ''
         fill_in 'Cidade', with: 'Petropolis'
-        fill_in 'Estado', with: 'SP'
+        select 'SP', :from => 'Estado'
         fill_in 'Email', with: 'petramail'
         fill_in 'Número de registro', with: 493028304
         click_on('Enviar')

@@ -34,7 +34,7 @@ describe 'Usuário acessa pagina de editar fornecedor' do
         fill_in 'Nome corporativo', with: 'Ptr'
         fill_in 'Nome da marca', with: 'PET'
         fill_in 'Cidade', with: 'São Petra'
-        fill_in 'Estado', with: 'RJ'
+        select 'RJ', :from => 'Estado'
         fill_in 'Email', with: 'petramaildsd'
         fill_in 'Número de registro', with: 4924513304
         click_on('Enviar')
@@ -65,7 +65,7 @@ describe 'Usuário acessa pagina de editar fornecedor' do
         fill_in 'Nome corporativo', with: 'Petra'
         fill_in 'Nome da marca', with: ''
         fill_in 'Cidade', with: 'Petropolis'
-        fill_in 'Estado', with: 'SP'
+        select 'SP', :from => 'Estado'
         fill_in 'Email', with: 'petramail'
         fill_in 'Número de registro', with: 493028304
         click_on('Enviar')
