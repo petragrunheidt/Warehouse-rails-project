@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Usuário cadastra um modelo de produto' do
     it 'a partir da tela inicial' do
         # Arrange
-        sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
+        sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
+            city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
         visit root_path
         within('nav') do
@@ -24,8 +24,8 @@ describe 'Usuário cadastra um modelo de produto' do
 
     it 'com sucesso' do
         # Arrange
-        sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
+        sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
+            city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
         visit root_path
         within('nav') do
@@ -54,8 +54,8 @@ describe 'Usuário cadastra um modelo de produto' do
 
     it 'com dados incompletos' do
         # Arrange
-        sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
+        sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
+            city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
         visit root_path
         within('nav') do

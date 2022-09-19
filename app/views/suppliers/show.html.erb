@@ -7,9 +7,9 @@
 <div>
 <p> <%= @supplier.corporate_name %></p>
 <ul>
-<li><strong>Cidade: </strong><%= @supplier.city %>,<strong> Estado: </strong><%= @supplier.state %></li>
+<li><strong>Endereço: </strong><%= @supplier.address %><strong>, Cidade: </strong><%= @supplier.city %>,<strong> Estado: </strong><%= @supplier.state %></li>
 <li><strong>Email: </strong><%= @supplier.email %></li>
-<li><strong>Número de registro: </strong><%= @supplier.registration_number %>
+<li><strong>CNPJ: </strong><%= @supplier.registration_number.insert(2, '.').insert(6, '.').insert(10, '/').insert(15, '-') %>
 </ul>
 <div><span>
 <%= link_to 'Voltar', suppliers_path %>

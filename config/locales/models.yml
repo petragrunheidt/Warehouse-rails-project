@@ -15,7 +15,8 @@ pt-BR:
       supplier:
         corporate_name: 'Nome corporativo'
         brand_name: 'Nome da marca'
-        registration_number: 'Número de registro'
+        registration_number: 'CNPJ'
+        address: 'Endereço'
         city: 'Cidade'
         state: 'Estado'
         email: 'Email'

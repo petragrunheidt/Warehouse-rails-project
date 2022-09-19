@@ -13,6 +13,7 @@ class ProductModelsController < ApplicationController
     end
 
     def create
+        @suppliers = Supplier.all
         @product_model = ProductModel.new(product_model_params)
 
         if @product_model.save
@@ -21,9 +22,12 @@ class ProductModelsController < ApplicationController
         render :new
     end
 
-    def edit; end
+    def edit
+        @suppliers = Supplier.all
+    end
 
     def update
+        @suppliers = Supplier.all
         if @product_model.update(product_model_params)
             return redirect_to @product_model, notice: 'Modelo editado com sucesso!'
         end

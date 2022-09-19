@@ -16,19 +16,19 @@ describe 'Usuario clica em fornecedores' do
 
     it 'e vê lista de fornecedores' do
          # Arrange
-         Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: 493028304, 
-                 city: 'Petropolis', state: 'SP', email: 'petramail')
+         Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: '0039419300013',
+                 city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
          # Act
          visit root_path
          click_on('Fornecedores')
- 
+
          # Assert
          expect(current_path).to eq suppliers_path
     end
     it 'e vê mensagem quando não há cadastros' do
         # Arrange
-        
+
         # Act
         visit root_path
         click_on('Fornecedores')

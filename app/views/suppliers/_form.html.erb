@@ -8,7 +8,7 @@
         <% flash.now[:notice] = error.full_message%>
         <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name %>
-        
+
         <% end %>
    </div>
 <% end %>
@@ -24,17 +24,20 @@
 <dt><%= s.label :brand_name, 'Nome da marca: '%>
 <%= s.text_field :brand_name %></dt>
 </div><div>
+<dt><%= s.label :address, 'Endereço: '%>
+<%= s.text_field :address %></dt>
+</div><div>
 <dt><%= s.label :city, 'Cidade: '%>
 <%= s.text_field :city %></dt>
 </div><div>
-<% siglas = [ 'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MS', 'MT', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI','RJ', 'RN','RS','RO','RR','SC','SP','SE','TO']%>
+<% siglas = ['', 'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MS', 'MT', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI','RJ', 'RN','RS','RO','RR','SC','SP','SE','TO']%>
 <dt><%= s.label :state, 'Estado: '%>
 <%= s.select :state, siglas %></dt>
 </div><div>
 <dt><%= s.label :email, 'Email: '%>
 <%= s.text_field :email %></dt>
 </div><div>
-<dt><%= s.label :registration_number, 'Número de registro: '%>
+<dt><%= s.label :registration_number, 'CNPJ: '%>
 <%= s.number_field :registration_number %></dt>
 </div>
 <%= s.submit 'Enviar' %>

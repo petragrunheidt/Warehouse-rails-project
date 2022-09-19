@@ -3,10 +3,10 @@ require 'rails_helper'
 describe 'Usuário acessa a pagina de editar modelos de produto' do
     it 'e vê campos editaveis de um modelo de produto' do
         # Arrange
-        sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
-        sup2 = Supplier.create!(brand_name: 'Petrux', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
+        sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
+            city: 'Petraopolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
+        sup2 = Supplier.create!(brand_name: 'Petrux', corporate_name: 'PETR ltda', registration_number: '2930430491031',
+            city: 'Petolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         ProductModel.create!(name: 'Bolo', weigth: 50, width: 50, heigth: 50,
             depth: 50, sku: 'TV23-SMED-XPT12', supplier: sup)
         # Act
@@ -29,8 +29,8 @@ describe 'Usuário acessa a pagina de editar modelos de produto' do
     end
     it 'e edita um modelo de produto com sucesso' do
         # Arrange
-        sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
+        sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
+            city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         ProductModel.create!(name: 'Bolo', weigth: 50, width: 50, heigth: 50,
             depth: 50, sku: 'TV23-SMED-XPT12', supplier: sup)
 
@@ -57,8 +57,8 @@ describe 'Usuário acessa a pagina de editar modelos de produto' do
     end
     it 'e encontra erros ao cadastrar produto sem um dos campos' do
         # Arrange
-        sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
-            city: 'Petropolis', state: 'SP', email: 'petramail')
+        sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
+            city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         ProductModel.create!(name: 'Bolo', weigth: 50, width: 50, heigth: 50,
             depth: 50, sku: 'TV23-SMED-XPT12', supplier: sup)
 
