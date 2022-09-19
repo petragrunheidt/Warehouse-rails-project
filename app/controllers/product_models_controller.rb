@@ -18,8 +18,10 @@ class ProductModelsController < ApplicationController
 
         if @product_model.save
             return redirect_to @product_model, notice: 'Modelo cadastrado com sucesso!'
+        else
+            @suppliers = Supplier.all
+            render :new
         end
-        render :new
     end
 
     def edit
@@ -27,11 +29,12 @@ class ProductModelsController < ApplicationController
     end
 
     def update
-        @suppliers = Supplier.all
         if @product_model.update(product_model_params)
             return redirect_to @product_model, notice: 'Modelo editado com sucesso!'
+        else
+            @suppliers = Supplier.all
+            render :new
         end
-        render :new
     end
 
     private

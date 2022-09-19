@@ -26,6 +26,14 @@
   <%= link_to 'Modelos de Produtos', product_models_path%>
   <%= link_to 'Cadastrar novo Modelo de Produto', new_product_model_path%>
   </span>
+  <span>
+  <% if user_signed_in? %>
+  <p>Olá, <%= current_user.name %>!</p>
+  <%= button_to 'Sair', destroy_user_session_path, method: 'delete' %>
+  <% else %>
+  <%= link_to 'Entrar', new_user_session_path %>
+  <% end %>
+  </span>
   <div>
 </nav>
 <body>

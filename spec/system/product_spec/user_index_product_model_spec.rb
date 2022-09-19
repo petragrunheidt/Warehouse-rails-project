@@ -35,6 +35,5 @@ describe 'Usuário vê modelos de produtos' do
         expect(page).to have_content 'Petra'
         expect(page).to have_content 'Maça'
         expect(page).to have_content 'TB873-SSDA-KCT2'
-
     end
 end
