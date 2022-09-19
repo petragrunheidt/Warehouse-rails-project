@@ -1,0 +1,47 @@
+<%= form_with model: product_model do |prod_mod| %>
+<% if @product_model.errors.any? %>
+
+  <div id="error_explanation">
+    <h2>Todos campos devem ser preenchidos</h2>
+    <div>
+      <% @product_model.errors.each do |error| %>
+        <% flash.now[:notice] = error.full_message%>
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+
+        <% end %>
+   </div>
+<% end %>
+  </div>
+<% end %>
+
+
+
+<dl>
+<div>
+<dt><%= prod_mod.label :name, 'Nome do Produto: '%>
+<%= prod_mod.text_field :name %></dt>
+</div><div>
+<dt><%= prod_mod.label :weigth, 'Peso: '%>
+<%= prod_mod.number_field :weigth %></dt>
+</div><div>
+<dt><%= prod_mod.label :heigth, 'Altura: '%>
+<%= prod_mod.number_field :heigth %></dt>
+</div><div>
+<dt><%= prod_mod.label :width, 'Largura: '%>
+<%= prod_mod.number_field :width %></dt>
+</div><div>
+<dt><%= prod_mod.label :depth, 'Profundidade: '%>
+<%= prod_mod.number_field :depth %></dt>
+</div><div>
+<dt><%= prod_mod.label :sku, 'SKU: '%>
+<%= prod_mod.text_field :sku %></dt>
+</div><div>
+<%= prod_mod.label :supplier_id, 'Fornecedor: '%>
+<%= prod_mod.collection_select :supplier_id, Supplier.all, :id, :brand_name %>
+</div><div>
+<%= prod_mod.submit 'Enviar' %>
+</div>
+</dl>
+
+<% end %>

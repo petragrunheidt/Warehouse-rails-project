@@ -30,7 +30,7 @@ describe 'Usuário acessa pagina de cadastrar fornecedores' do
         select 'SP', :from => 'Estado'
         fill_in 'Email', with: 'petramail'
         fill_in 'Número de registro', with: 493028304
-        click_on('Enviar')
+        click_on 'Enviar'
         
         # Assert
         expect(current_path).to eq supplier_path(1)

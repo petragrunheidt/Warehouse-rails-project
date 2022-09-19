@@ -23,7 +23,7 @@ describe 'Usuário vê modelos de produtos' do
         expect(page).to have_content 'SKU: '
         expect(page).to have_content 'Fornecedor: Petra'
     end
-    it 'com sucesso' do
+    it 'e volta para a lista de modelos de produtos' do
         # Arrange
         sup = Supplier.create!(brand_name: 'Petra', corporate_name: 'PETR', registration_number: 29304,
             city: 'Petropolis', state: 'SP', email: 'petramail')
@@ -39,6 +39,6 @@ describe 'Usuário vê modelos de produtos' do
         click_on 'Voltar'
         
         # Assert
-        expect(current_path).to eq product_model_path(1)
+        expect(current_path).to eq product_models_path
     end
 end

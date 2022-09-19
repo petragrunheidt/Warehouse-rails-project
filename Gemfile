@@ -31,3 +31,5 @@ group :development do
   gem 'capybara'
 end
 
+
+gem "ruby-lsp", "~> 0.3.2", :group => :development

@@ -1,11 +1,34 @@
 class ProductModelsController < ApplicationController
     before_action :set_product_model, only: [:show, :edit, :update, :destroy]
-    
+
     def index
         @product_models = ProductModel.all
     end
 
     def show; end
+
+    def new
+        @product_model = ProductModel.new
+        @suppliers = Supplier.all
+    end
+
+    def create
+        @product_model = ProductModel.new(product_model_params)
+
+        if @product_model.save
+            return redirect_to @product_model, notice: 'Modelo cadastrado com sucesso!'
+        end
+        render :new
+    end
+
+    def edit; end
+
+    def update
+        if @product_model.update(product_model_params)
+            return redirect_to @product_model, notice: 'Modelo editado com sucesso!'
+        end
+        render :new
+    end
 
     private
 
@@ -14,7 +37,6 @@ class ProductModelsController < ApplicationController
     end
 
     def product_model_params
-        params.require(:supplier).permit(:corporate_name, :brand_name, :registration_number, :city, :state,
-            :email)
+        params.require(:product_model).permit(:name, :weigth, :width, :heigth, :depth, :sku, :supplier_id)
     end
 end
