@@ -8,7 +8,7 @@
         <% flash.now[:notice] = error.full_message%>
         <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name %>
-        
+
         <% end %>
    </div>
 <% end %>
@@ -29,7 +29,7 @@
 <dt><%= w.label :address, 'Endereço: '%>
 <%= w.text_field :address %></dt>
 </div><div>
-<dt><%= w.label :cep, 'CEP: '%>
+<dt><%= w.label :cep, 'CEP (somente números): '%>
 <%= w.number_field :cep %></dt>
 </div><div>
 <dt><%= w.label :area, 'Area: '%>
