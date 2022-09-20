@@ -5,7 +5,7 @@
     <h2>Todos campos devem ser preenchidos</h2>
     <div>
       <% @product_model.errors.each do |error| %>
-        <% flash.now[:notice] = error.full_message%>
+        <% flash.now[:alert] = error.full_message%>
         <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, class: name %>
 

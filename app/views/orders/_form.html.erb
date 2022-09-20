@@ -1,0 +1,38 @@
+<%= form_with model: order do |ord| %>
+<% if @order.errors.any? %>
+
+  <div id="error_explanation">
+    <h2>Todos campos devem ser preenchidos</h2>
+    <div>
+      <% @order.errors.each do |error| %>
+        <% flash.now[:alert] = error.full_message%>
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+
+        <% end %>
+   </div>
+<% end %>
+  </div>
+<% end %>
+
+
+
+<dl>
+<div>
+<dt><%= ord.label :name, 'Nome do Produto: '%>
+<%= ord.text_field :name %></dt>
+</div><div>
+<%= ord.label :warehouse_id, 'Galpão: '%>
+<%= ord.collection_select :warehouse_id, @warehouses, :id, :name %>
+</div><div>
+<%= ord.label :supplier_id, 'Fornecedor: '%>
+<%= ord.collection_select :supplier_id, @suppliers, :id, :corporate_name %>
+</div><div>
+<%= ord.label :estimated_delivery_date, 'Data Prevista de Entrega: '%>
+<%= ord.date_field :estimated_delivery_date %>
+</div><div>
+<%= ord.submit 'Enviar' %>
+</div>
+</dl>
+
+<% end %>

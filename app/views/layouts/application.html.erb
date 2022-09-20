@@ -27,6 +27,9 @@
   <%= link_to 'Cadastrar novo Modelo de Produto', new_product_model_path%>
   </span>
   <span>
+  <%= link_to 'Registrar Pedido', new_order_path%>
+  </span>
+  <span>
   <% if user_signed_in? %>
   <p>Olá, <%= current_user.name %>!</p>
   <%= button_to 'Sair', destroy_user_session_path, method: 'delete' %>
@@ -41,7 +44,7 @@
   </header>
   <main>
     <div>
-    <%= alert %>
+
     <%= notice%>
     </div>
     <%= yield %>
