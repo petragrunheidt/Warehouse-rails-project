@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'Usuário clica em pagina de modelos de produtos' do
+
     it 'e vê mais detalhes do produto' do
         # Arrange
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',

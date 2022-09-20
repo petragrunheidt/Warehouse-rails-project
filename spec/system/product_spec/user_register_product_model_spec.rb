@@ -1,11 +1,31 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra um modelo de produto' do
+describe 'Usuário entra na pagina de cadastrar modelo de produto' do
+    it 'se estiver autenticado' do
+        # Arrange
+
+        # Act
+        visit root_path
+        within('nav') do
+            click_on 'Cadastrar novo Modelo de Produto'
+        end
+        # Assert
+        expect(current_path).to eq new_user_session_path
+
+    end
     it 'a partir da tela inicial' do
         # Arrange
+        User.create!(name: 'Petra', email: 'petramail@gmail.com', password: 'password')
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
+        visit root_path
+        click_on 'Entrar'
+        within('form') do
+          fill_in 'E-mail', with: 'petramail@gmail.com'
+          fill_in 'Senha', with: 'password'
+          click_on 'Entrar'
+        end
         visit root_path
         within('nav') do
         click_on 'Cadastrar novo Modelo de Produto'
@@ -24,9 +44,17 @@ describe 'Usuário cadastra um modelo de produto' do
 
     it 'com sucesso' do
         # Arrange
+        User.create!(name: 'Petra', email: 'petramail@gmail.com', password: 'password')
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
+        visit root_path
+        click_on 'Entrar'
+        within('form') do
+          fill_in 'E-mail', with: 'petramail@gmail.com'
+          fill_in 'Senha', with: 'password'
+          click_on 'Entrar'
+        end
         visit root_path
         within('nav') do
         click_on 'Cadastrar novo Modelo de Produto'
@@ -54,9 +82,17 @@ describe 'Usuário cadastra um modelo de produto' do
 
     it 'com dados incompletos' do
         # Arrange
+        User.create!(name: 'Petra', email: 'petramail@gmail.com', password: 'password')
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
+        visit root_path
+        click_on 'Entrar'
+        within('form') do
+          fill_in 'E-mail', with: 'petramail@gmail.com'
+          fill_in 'Senha', with: 'password'
+          click_on 'Entrar'
+        end
         visit root_path
         within('nav') do
         click_on 'Cadastrar novo Modelo de Produto'

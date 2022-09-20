@@ -1,6 +1,6 @@
 class ProductModelsController < ApplicationController
     before_action :set_product_model, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update]
     def index
         @product_models = ProductModel.all
     end
