@@ -3,13 +3,13 @@ require 'rails_helper'
 describe 'Usuário vê detalhes de um fornecedor' do
     it 'e vê informações adicionais' do
         # Arrange
-        sup = Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: '0039419300013',
+        Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
         # Act
         visit root_path
         click_on('Fornecedores')
-        click_on('mais informações')
+        click_on('Petra')
 
         # Assert
         expect(current_path).to eq ('/suppliers/1')
@@ -21,13 +21,13 @@ describe 'Usuário vê detalhes de um fornecedor' do
     end
     it 'e volta para tela de fornecedores' do
          # Arrange
-         sup = Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: '0039419300013',
+        Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
         # Act
         visit root_path
         click_on('Fornecedores')
-        click_on('mais informações')
+        click_on('Petra')
         click_on('Voltar')
 
         # Assert

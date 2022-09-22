@@ -8,13 +8,13 @@
 <% if @supplier.present?%>
 <% @supplier.each do | s | %>
 
-<h3><%= s.brand_name %></h3>
+<h3><%= link_to s.brand_name, supplier_path(s.id) %></h3>
 <dl>
 <dt><%= s.corporate_name %>
 <dt></dt>
 </dl>
 <div>
-<%= link_to 'mais informações', supplier_path(s.id) %>
+
 </div>
 
 <% end %>

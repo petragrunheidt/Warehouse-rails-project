@@ -5,7 +5,9 @@ class SuppliersController < ApplicationController
         @supplier = Supplier.all
     end
 
-    def show; end
+    def show
+        @product_models = ProductModel.all.select {|prodmod| (prodmod.supplier == @supplier)}
+    end
 
     def new
         @supplier = Supplier.new

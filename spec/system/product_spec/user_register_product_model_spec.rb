@@ -52,7 +52,7 @@ describe 'Usuário entra na pagina de cadastrar modelo de produto' do
         fill_in 'Largura', with: '20'
         fill_in 'Altura', with: '20'
         fill_in 'Profundidade', with: '20'
-        fill_in 'SKU', with: 'PN20-49TMTN'
+        fill_in 'SKU', with: 'TV23-SMED-XPT12-KMT7'
         select 'Petra', :from => 'Fornecedor:'
         click_on 'Enviar'
 
@@ -64,7 +64,7 @@ describe 'Usuário entra na pagina de cadastrar modelo de produto' do
         expect(page).to have_content 'Largura: 20cm'
         expect(page).to have_content 'Altura: 20cm'
         expect(page).to have_content 'Profundidade: 20cm'
-        expect(page).to have_content 'SKU: PN20-49TMTN'
+        expect(page).to have_content 'SKU: TV23-SMED-XPT12-KMT7'
         expect(page).to have_content 'Fornecedor: Petra'
     end
 

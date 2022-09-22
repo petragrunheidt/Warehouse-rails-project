@@ -3,12 +3,12 @@ require 'rails_helper'
 describe 'Usuário acessa pagina de editar fornecedor' do
     it 'com sucesso' do
         # Arrange
-        sup = Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: '0039419300013',
+        Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
         visit root_path
         click_on('Fornecedores')
-        click_on('mais informações')
+        click_on('Petra')
         click_on('Editar')
 
         # Assert
@@ -23,13 +23,13 @@ describe 'Usuário acessa pagina de editar fornecedor' do
 
     it 'e edita cadastro de fornecedor com sucesso' do
         # Arrange
-        sup = Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: '0039419300013',
+        Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
         # Act
         visit root_path
         click_on('Fornecedores')
-        click_on('mais informações')
+        click_on('Petra')
         click_on('Editar')
         fill_in 'Nome corporativo', with: 'Ptr'
         fill_in 'Nome da marca', with: 'PET'
@@ -54,14 +54,14 @@ describe 'Usuário acessa pagina de editar fornecedor' do
 
     it 'e encontra um erro ao tentar cadastrar sem um dos campos' do
         # Arrange
-        sup = Supplier.create!(corporate_name: 'Petra', brand_name: 'PETR', registration_number: '0039419300013',
+        Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
         # Act
         visit root_path
         visit root_path
         click_on('Fornecedores')
-        click_on('mais informações')
+        click_on('Petra')
         click_on('Editar')
         fill_in 'Nome corporativo', with: 'Petra'
         fill_in 'Nome da marca', with: ''

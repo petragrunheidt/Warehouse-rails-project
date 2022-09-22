@@ -20,8 +20,8 @@
 <dt><%= w.label :name, 'Nome: '%>
 <%= w.text_field :name %></dt>
 </div><div>
-<dt><%= w.label :code, 'Código: '%>
-<%= w.text_field :code %></dt>
+<dt><%= w.label :code, 'Código (3 letras maisculas): '%>
+<%= w.text_field :code, pattern: '[A-Z]{3}' %></dt>
 </div><div>
 <dt><%= w.label :city, 'Cidade: '%>
 <%= w.text_field :city %></dt>
@@ -30,7 +30,7 @@
 <%= w.text_field :address %></dt>
 </div><div>
 <dt><%= w.label :cep, 'CEP (somente números): '%>
-<%= w.number_field :cep %></dt>
+<%= w.number_field :cep, pattern: '[0-9]{5}-[0-9]{3}' %></dt>
 </div><div>
 <dt><%= w.label :area, 'Area: '%>
 <%= w.number_field :area %></dt>

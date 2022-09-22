@@ -16,3 +16,13 @@
 <%= link_to 'Editar', edit_supplier_path %>
 </span></div>
 </div>
+<h1>Produtos deste Fornecedor</h1>
+
+<% @product_models.each do |prodmod| %>
+<ul>
+<h4><strong>Produto: </strong><%= prodmod.name %></h4>
+<li><strong>Peso: </strong><%= prodmod.weigth %>g</li>
+<li><strong>Dimensões: </strong><%= prodmod.width %>x<%= prodmod.heigth %>x<%= prodmod.depth %>cm</li>
+<li><strong>SKU: </strong><%= prodmod.sku %>
+</ul>
+<% end %>
