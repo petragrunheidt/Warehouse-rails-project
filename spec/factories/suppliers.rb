@@ -6,9 +6,10 @@ FactoryBot.define do
     state {'SP'}
     email {'petramail@gmail'}
     address {'Rua da Petra'}
+    registration_number {'2930293019302'}
   end
 end
 
-#Factory.Bot.create(:product_model)
+#FactoryBot.create(:product_model)
 
 

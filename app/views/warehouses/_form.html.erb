@@ -31,7 +31,7 @@
 <%= w.text_field :address %></dt>
 </div><div>
 <dt><%= w.label :cep, 'CEP (somente números): '%>
-<%= w.text_field :cep, type: 'number', pattern: '[0-9]{5}-[0-9]{3}', maxlength: 8 %></dt>
+<%= w.text_field :cep, oninput: "javascript: this.value=this.value.slice(0,this.maxLength)", maxlength: 8, type: 'number' %></dt>
 </div><div>
 <dt><%= w.label :area, 'Area: '%>
 <%= w.number_field :area %></dt>

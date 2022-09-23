@@ -38,7 +38,7 @@
 <%= s.text_field :email %></dt>
 </div><div>
 <dt><%= s.label :registration_number, 'CNPJ (somente números): '%>
-<%= s.text_field :registration_number, type: 'number', pattern: '[0-9]{13}', maxlength: 13  %></dt>
+<%= s.text_field :registration_number, oninput: "javascript: this.value=this.value.slice(0,this.maxLength)", maxlength: 13, type: 'number' %></dt>
 </div>
 <%= s.submit 'Enviar' %>
 </div>
