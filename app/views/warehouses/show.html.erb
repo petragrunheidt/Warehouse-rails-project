@@ -1,4 +1,4 @@
-<h1>Galpão <%= @warehouse.code %></h1>
+<h1><%=Warehouse.model_name.human%>: <%= @warehouse.code %></h1>
 <div>
     <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
@@ -17,3 +17,4 @@
 <%= link_to 'Editar', edit_warehouse_path(@warehouse.id) %>
 <%= link_to 'Voltar', root_path %>
 <%= button_to 'Deletar', warehouse_path(@warehouse.id), { method: 'delete' }%>
+

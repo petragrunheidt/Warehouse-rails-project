@@ -11,10 +11,8 @@
   </head>
 <nav>
   <div>
-  <span><h1>Galpões & Estoque</h1></span>
-  <span>
-  <%= link_to 'Página Inicial', root_path %>
-  </span>
+  <span><h1><%= link_to 'Galpões & Estoque', root_path %></h1></span>
+
   <span>
   <%= link_to 'Cadastrar Galpão', new_warehouse_path %>
   </span>
@@ -31,7 +29,7 @@
   </span>
   <span>
   <% if user_signed_in? %>
-  <p>Olá, <%= current_user.name %>!</p>
+  <p>Olá, <%= current_user.description %>!</p>
   <%= button_to 'Sair', destroy_user_session_path, method: 'delete' %>
   <% else %>
   <%= link_to 'Entrar', new_user_session_path %>

@@ -31,4 +31,17 @@ RSpec.describe Supplier, type: :model do
       end
     end
   end
+  describe '#full_description' do
+    it 'exibe o nome da marca, nome comercial e cnpj' do
+        # Arrange
+        supplier = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '3910392039401',
+          city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
+
+        # Act
+        result = supplier.full_description
+
+        # Assert
+        expect(result).to eq('PETR ltda - Petra | CNPJ:39.103.920/3940-1')
+    end
+end
 end

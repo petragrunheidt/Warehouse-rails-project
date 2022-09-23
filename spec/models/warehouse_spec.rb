@@ -5,9 +5,9 @@ RSpec.describe Warehouse, type: :model do
         context 'presence' do
         it 'false when name is empty' do
             # Arrange
-            warehouse = Warehouse.new(name: '', code: 'Rio', address: 'rua', 
-                cep: '25930030', city: 'Rio', 
-                area: 0320, description: 'descrição')           
+            warehouse = Warehouse.new(name: '', code: 'Rio', address: 'rua',
+                cep: '25930030', city: 'Rio',
+                area: 0320, description: 'descrição')
             # Act
             result = warehouse.valid?
             # Assert
@@ -15,9 +15,9 @@ RSpec.describe Warehouse, type: :model do
         end
         it 'false when name is empty' do
             # Arrange
-            warehouse = Warehouse.new(name: '', code: 'Rio', address: 'rua', 
-                cep: '25930030', city: 'Rio', 
-                area: 0320, description: 'descrição')           
+            warehouse = Warehouse.new(name: '', code: 'Rio', address: 'rua',
+                cep: '25930030', city: 'Rio',
+                area: 0320, description: 'descrição')
             # Act
             result = warehouse.valid?
             # Assert
@@ -25,9 +25,9 @@ RSpec.describe Warehouse, type: :model do
         end
         it 'false when code is empty' do
             # Arrange
-            warehouse = Warehouse.new(name: 'dsa', code: '', address: 'rua', 
-                cep: '25930030', city: 'Rio', 
-                area: 0320, description: 'descrição')           
+            warehouse = Warehouse.new(name: 'dsa', code: '', address: 'rua',
+                cep: '25930030', city: 'Rio',
+                area: 0320, description: 'descrição')
             # Act
             result = warehouse.valid?
             # Assert
@@ -35,9 +35,9 @@ RSpec.describe Warehouse, type: :model do
         end
         it 'false when address is empty' do
             # Arrange
-            warehouse = Warehouse.new(name: 'sda', code: 'Rio', address: '', 
-                cep: '25930030', city: 'Rio', 
-                area: 0320, description: 'descrição')           
+            warehouse = Warehouse.new(name: 'sda', code: 'Rio', address: '',
+                cep: '25930030', city: 'Rio',
+                area: 0320, description: 'descrição')
             # Act
             result = warehouse.valid?
             # Assert
@@ -47,17 +47,17 @@ RSpec.describe Warehouse, type: :model do
         context 'uniqueness' do
         it 'false when code is already in use' do
             # Arrange
-            warehouse1 = Warehouse.create!(name: 'R', code: 'RIO', address: 'rua', 
-                cep: '25930030', city: 'Rio', 
-                area: 0320, description: 'descrição')   
+            warehouse1 = Warehouse.create!(name: 'R', code: 'RIO', address: 'rua',
+                cep: '25930030', city: 'Rio',
+                area: 0320, description: 'descrição')
 
-            warehouse2 = Warehouse.new(name: 'aR', code: 'RIO', address: 'arua', 
-                cep: 'a25930030', city: 'aRio', 
-                area: 10320, description: 'adescrição')  
-        
+            warehouse2 = Warehouse.new(name: 'aR', code: 'RIO', address: 'arua',
+                cep: 'a25930030', city: 'aRio',
+                area: 10320, description: 'adescrição')
+
             # Act
             result = warehouse2.valid?
-            
+
             # Assert
             expect(result).to eq false
         end
@@ -65,15 +65,30 @@ RSpec.describe Warehouse, type: :model do
     context 'length' do
     it 'false when code lenght is not 3' do
         # Arrange
-        warehouse = Warehouse.create(name: 'R', code: 'RIOS', address: 'rua', 
-            cep: '25930030', city: 'Rio', 
+        warehouse = Warehouse.create(name: 'R', code: 'RIOS', address: 'rua',
+            cep: '25930030', city: 'Rio',
             area: 0320, description: 'descrição')
         # Act
         result = warehouse.valid?
         #Assert
         expect(result).to eq false
-        end    
+        end
     end
     #
     end
+    describe '#full_description' do
+        it 'exibe o nome fantasia e a razão social' do
+            # Arrange
+            warehouse = Warehouse.new(name: 'Galpão da cidade', code: 'RIO', address: 'rua',
+                cep: '25930030', city: 'Rio de Janeiro',
+                area: 0320, description: 'descrição')
+
+            # Act
+            result = warehouse.full_description
+
+            # Assert
+            expect(result).to eq('RIO | Galpão da cidade')
+        end
+    end
 end
+

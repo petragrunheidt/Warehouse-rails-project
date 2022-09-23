@@ -35,7 +35,7 @@
 <%= prod_mod.number_field :depth %></dt>
 </div><div>
 <dt><%= prod_mod.label :sku, 'SKU: '%>
-<%= prod_mod.text_field :sku %></dt>
+<%= prod_mod.text_field :sku, maxlength: 20 %></dt>
 </div><div>
 <%= prod_mod.label :supplier_id, 'Fornecedor: '%>
 <%= prod_mod.collection_select :supplier_id, @suppliers, :id, :brand_name %>

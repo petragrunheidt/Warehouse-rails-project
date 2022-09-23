@@ -17,7 +17,7 @@ describe 'Usuário se autentifica' do
     within('nav') do
       expect(page).not_to have_link 'Entrar'
       expect(page).to have_button 'Sair'
-      expect(page).to have_content 'Olá, Petra!'
+      expect(page).to have_content "Olá, Petra - petramail@gmail.com!"
     end
     expect(page).to have_content 'Login efetuado com sucesso.'
   end
@@ -38,7 +38,7 @@ describe 'Usuário se autentifica' do
     within('nav') do
       expect(page).to have_link 'Entrar'
       expect(page).not_to have_button 'Sair'
-      expect(page).not_to have_content 'Olá, Petra!'
+      expect(page).not_to have_content "Olá, Petra - petramail@gmail.com!"
     end
     expect(page).to have_content 'Logout efetuado com sucesso.'
   end
