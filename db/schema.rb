@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_23_012527) do
 
   create_table "product_models", force: :cascade do |t|
     t.string "name"
-    t.integer "weigth"
+    t.integer "weight"
     t.integer "width"
     t.integer "heigth"
     t.integer "depth"

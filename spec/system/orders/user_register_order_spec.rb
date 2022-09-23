@@ -30,7 +30,7 @@ describe 'Usuário cadastra um pedido' do
       click_on 'Registrar Pedido'
       select war.full_description, :from => 'Galpão'
       select sup.full_description, :from => 'Fornecedor'
-      fill_in 'Data Prevista de Entrega', with: '20/12/2022'
+      fill_in 'Data Prevista de Entrega', with: Date.tomorrow
       click_on 'Enviar'
     # Assert
     expect(page).to have_content 'Pedido registrado com sucesso.'
@@ -38,7 +38,7 @@ describe 'Usuário cadastra um pedido' do
     expect(page).to have_content 'Galpão Destino: RIO | Rozali'
     expect(page).to have_content 'Fornecedor: PETR ltda'
     expect(page).to have_content 'Usuário Responsável: Petra <petramail@gmail.com>'
-    expect(page).to have_content 'Data Prevista de Entrega: 20/12/2022'
+    expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(Date.tomorrow)}"
     expect(page).not_to have_content 'PITR ltda'
   end
 end

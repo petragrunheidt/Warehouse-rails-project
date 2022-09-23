@@ -5,7 +5,7 @@ pt-BR:
     attributes:
       product_model:
         name: 'Nome'
-        weigth: 'Peso'
+        weight: 'Peso'
         heigth: "Altura"
         depth: 'Profundidade'
         width: 'Largura'

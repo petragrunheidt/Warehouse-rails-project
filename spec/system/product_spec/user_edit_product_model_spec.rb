@@ -8,7 +8,7 @@ describe 'Usuário acessa a pagina de editar modelos de produto' do
             city: 'Petraopolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         sup2 = Supplier.create!(brand_name: 'Petrux', corporate_name: 'PETR ltda', registration_number: '2930430491031',
             city: 'Petolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
-        ProductModel.create!(name: 'Bolo', weigth: 50, width: 50, heigth: 50,
+        ProductModel.create!(name: 'Bolo', weight: 50, width: 50, heigth: 50,
             depth: 50, sku: 'TV23-SMED-XPT12-KMT7', supplier: sup)
         # Act
         login_as(user)
@@ -34,7 +34,7 @@ describe 'Usuário acessa a pagina de editar modelos de produto' do
         user = User.create!(name: 'Petra', email: 'petramail@gmail.com', password: 'password')
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
-        ProductModel.create!(name: 'Bolo', weigth: 50, width: 50, heigth: 50,
+        ProductModel.create!(name: 'Bolo', weight: 50, width: 50, heigth: 50,
             depth: 50, sku: 'TV23-SMED-XPT12-KMT7', supplier: sup)
 
         # Act
@@ -64,7 +64,7 @@ describe 'Usuário acessa a pagina de editar modelos de produto' do
         user = User.create!(name: 'Petra', email: 'petramail@gmail.com', password: 'password')
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
-        ProductModel.create!(name: 'Bolo', weigth: 50, width: 50, heigth: 50,
+        ProductModel.create!(name: 'Bolo', weight: 50, width: 50, heigth: 50,
             depth: 50, sku: 'TV23-SMED-XPT12-KMT7', supplier: sup)
 
         # Act
