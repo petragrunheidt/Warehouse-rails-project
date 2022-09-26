@@ -1,0 +1,16 @@
+<h1>Resultados da Busca por: <%= @query %></h1>
+<% if @orders.present? %>
+<p><%= @orders.count %> <%= Order.model_name.human(count: @orders.count) %> <%= I18n.translate(:found, count: @orders.count) %></p>
+
+<% @orders.each do |order| %>
+<dl>
+    <dt><%= Order.human_attribute_name('code') %>: <%=link_to order.code, order_path(order)%></dt>
+    <dt><%= Order.human_attribute_name('warehouse_id') %>: <%= order.warehouse.full_description %></dt>
+    <dt><%= Order.human_attribute_name('supplier_id') %>: <%= order.supplier.full_description %></dt>
+    <dt><%= Order.human_attribute_name('estimated_delivery_date') %>: <%= I18n.localize(order.estimated_delivery_date) %></dt>
+</dl>
+<% end %>
+<% else %>
+<h2>Nenhum resultado encontrado para a busca por: <%= @query %></h2>
+
+<% end %>

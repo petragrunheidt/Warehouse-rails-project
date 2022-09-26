@@ -16,7 +16,7 @@ describe 'Usuário se autentifica' do
 
     # Assert
     expect(page).to have_button 'Sair'
-    expect(page).to have_content "Olá, Petrinha - petrinha@gmail.com!"
+    expect(page).to have_content "Olá, Petrinha - petrinha@gmail.com"
     expect(page).to have_content 'Boas vindas! Você realizou seu registro com sucesso.'
   end
 end

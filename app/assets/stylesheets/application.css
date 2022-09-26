@@ -32,14 +32,14 @@
  }
 
  button {
-   
+
  }
 
 span {
    display: inline-block;
-   width: 100px;
-   height: 100px;
-   padding: 5px;
+   width: 8%;
+   height: 100%;
+   margin-inline: 3% 2%;
  }
 
  footer {

@@ -2,7 +2,7 @@
 <% if @warehouse.errors.any? %>
 
   <div id="error_explanation">
-    <h2>Todos campos devem ser preenchidos</h2>
+    <h2>Todos os campos devem ser preenchidos</h2>
     <div>
       <% @warehouse.errors.each do |error| %>
         <% flash.now[:alert] = error.full_message%>

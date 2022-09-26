@@ -41,4 +41,21 @@ describe 'Usuário cadastra um pedido' do
     expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(Date.tomorrow)}"
     expect(page).not_to have_content 'PITR ltda'
   end
+  it 'e recebe erro ao não informar a data de entrega' do
+    # Arrange
+    user = FactoryBot.create(:user)
+    war = FactoryBot.create(:warehouse)
+    sup = FactoryBot.create(:supplier)
+    # Act
+    login_as(user)
+    visit root_path
+    click_on 'Registrar Pedido'
+    select war.full_description, :from => 'Galpão'
+    select sup.full_description, :from => 'Fornecedor'
+    fill_in 'Data Prevista de Entrega', with: ''
+    click_on 'Enviar'
+  # Assert
+  expect(page).to have_content 'Todos os campos devem ser preenchidos'
+  expect(page).to have_content 'Data Prevista de Entrega não pode ficar em branco'
+  end
 end
