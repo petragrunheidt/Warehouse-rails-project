@@ -1,0 +1,5 @@
+<h1>Meus <%=Order.model_name.human(count: 2) %></h1>
+
+<% @orders.each do |order| %>
+  <%= render order %>
+<% end %>

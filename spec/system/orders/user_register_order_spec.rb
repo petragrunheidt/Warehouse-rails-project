@@ -23,7 +23,7 @@ describe 'Usuário cadastra um pedido' do
     war = Warehouse.create!(name: 'Rozali', code: 'RIO', address: 'rua da petra',
       cep: '25930030', city: 'Rio de Janeiro',
       area: 5320, description: 'descrição')
-    allow(SecureRandom).to receive(:alphanumeric).with(8).and_return('ABC12345')
+    allow(SecureRandom).to receive(:alphanumeric).with(5).and_return('12345')
     # Act
       login_as(user)
       visit root_path
@@ -34,7 +34,7 @@ describe 'Usuário cadastra um pedido' do
       click_on 'Enviar'
     # Assert
     expect(page).to have_content 'Pedido registrado com sucesso.'
-    expect(page).to have_content 'Pedido ABC12345'
+    expect(page).to have_content 'Pedido RIO12345'
     expect(page).to have_content 'Galpão Destino: RIO | Rozali'
     expect(page).to have_content 'Fornecedor: PETR ltda'
     expect(page).to have_content 'Usuário Responsável: Petra <petramail@gmail.com>'

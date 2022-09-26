@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  def index
+    @orders = current_user.orders
+  end
 
   def show
     @order = Order.find(params[:id])
@@ -26,6 +29,6 @@ class OrdersController < ApplicationController
 
   def search
     @query = params["query"]
-    @orders = Order.where("estimated_delivery_date OR code OR warehouse_id OR supplier_id LIKE ?", "%#{@query}%")
+    @orders = Order.where("code LIKE ?", "%#{@query}%")
   end
 end

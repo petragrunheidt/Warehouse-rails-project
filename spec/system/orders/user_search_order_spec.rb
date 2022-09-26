@@ -74,20 +74,22 @@ describe 'Usuário busca por um pedido' do
    end
    it 'e encontra mais do que um pedido' do
     # Arrange
+    warehouse1 = FactoryBot.create(:warehouse, code: 'PET')
+    warehouse2 = FactoryBot.create(:warehouse, code: 'TEP')
+    order1 = FactoryBot.create(:order, warehouse: warehouse1)
+    order2 = FactoryBot.create(:order, warehouse: warehouse1)
+    order3 = FactoryBot.create(:order, warehouse: warehouse2)
     user = FactoryBot.create(:user)
-    order1 = FactoryBot.create(:order, estimated_delivery_date: 10.years.from_now)
-    order2 = FactoryBot.create(:order, estimated_delivery_date: 1.week.from_now)
-    order3 = FactoryBot.create(:order, estimated_delivery_date: 1.week.from_now)
 
     # Act
     login_as(user)
     visit root_path
-    fill_in 'Buscar Pedido', with: I18n.localize(order2.estimated_delivery_date)
+    fill_in 'Buscar Pedido', with: order1.warehouse.code
     click_on 'Buscar'
 
     # Assert
-    expect(page).to have_content "Resultados da Busca por: #{I18n.localize(order2.estimated_delivery_date)}"
-    expect(page).to have_content '2 pedidos encontrados'
-    expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(order2.estimated_delivery_date)}"
+    expect(page).to have_content "Resultados da Busca por: #{order1.warehouse.code}"
+    expect(page).to have_content '2 Pedidos encontrados'
+    expect(page).to have_content "Galpão Destino: #{order1.warehouse.full_description}"
    end
 end

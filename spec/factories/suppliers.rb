@@ -6,7 +6,7 @@ FactoryBot.define do
     state {'SP'}
     email {'petramail@gmail'}
     address {'Rua da Petra'}
-    registration_number {'2930293019332'}
+    registration_number {SecureRandom.random_number(1000000000000..10000000000000).to_s}
   end
 end
 
