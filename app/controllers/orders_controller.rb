@@ -40,19 +40,24 @@ class OrdersController < ApplicationController
     @warehouses = Warehouse.all
     @suppliers = Supplier.all
     @order = Order.find(params[:id])
+    if @order.user != current_user
+      redirect_to root_path, notice: "Permissão negada, pedido de outro usuário"
+    end
   end
 
   def update
     @order = Order.find(params[:id])
-
     order_params = params.require(:order).permit(:warehouse_id, :supplier_id, :estimated_delivery_date)
-      if @order.update(order_params)
-          return redirect_to @order, notice: 'Pedido Atualizado com Sucesso.'
-      else
-        @warehouses = Warehouse.all
-        @suppliers = Supplier.all
-        render :new
-      end
+    if @order.user != current_user
+      return redirect_to root_path, notice: "Permissão negada, pedido de outro usuário"
+    end
+    if @order.update(order_params)
+      return redirect_to @order, notice: 'Pedido Atualizado com Sucesso.'
+    else
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
+      render :new
+    end
   end
 end
 

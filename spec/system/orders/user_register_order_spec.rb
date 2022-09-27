@@ -58,4 +58,5 @@ describe 'Usuário cadastra um pedido' do
   expect(page).to have_content 'Todos os campos devem ser preenchidos'
   expect(page).to have_content 'Data Prevista de Entrega não pode ficar em branco'
   end
+  
 end

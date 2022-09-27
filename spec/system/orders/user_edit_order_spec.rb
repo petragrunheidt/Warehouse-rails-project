@@ -24,6 +24,18 @@ describe 'Usuário edita pedido' do
     # Assert
     expect(page).to have_content 'Pedido Atualizado com Sucesso.'
     expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(Date.tomorrow + 50)}"
+  end
+  it 'e volta para a tela inicial ao tentar editar o pedido de outro usuário' do
+    user1 = FactoryBot.create(:user)
+    user2 = FactoryBot.create(:user)
+    order = FactoryBot.create(:order, user: user1)
 
+    # Act
+    login_as(user2)
+    visit edit_order_path(order)
+
+    # Assert
+    expect(current_path).to eq root_path
+    expect(page).to have_content "Permissão negada, pedido de outro usuário"
   end
 end
