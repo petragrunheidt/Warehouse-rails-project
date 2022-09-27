@@ -1,6 +1,7 @@
 class WarehousesController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_warehouse, only: [:show, :edit, :update, :destroy]
-    
+
     def show; end
 
     def new
@@ -9,9 +10,9 @@ class WarehousesController < ApplicationController
 
     def create
         @warehouse = Warehouse.new(warehouse_params)
-        
+
         if @warehouse.save
-            
+
             return redirect_to warehouse_path(@warehouse.id), notice: 'Galpão cadastrado com sucesso!'
         end
         render :new
@@ -32,7 +33,7 @@ class WarehousesController < ApplicationController
         end
 
     end
-    
+
     private
 
     def set_warehouse

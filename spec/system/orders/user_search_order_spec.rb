@@ -47,7 +47,7 @@ describe 'Usuário busca por um pedido' do
    it 'e entra na pagina do pedido' do
     # Arrange
     user = FactoryBot.create(:user)
-    order = FactoryBot.create(:order)
+    order = FactoryBot.create(:order, user: user)
 
     # Act
     login_as(user)

@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'Usuário vê modelos de produtos' do
     it 'a partir do menu' do
         # Arrange
-
+        user = FactoryBot.create(:user)
         # Act
+        login_as(user)
         visit root_path
         within('nav') do
         click_on 'Modelos de Produtos'
@@ -15,6 +16,7 @@ describe 'Usuário vê modelos de produtos' do
     end
     it 'com sucesso' do
         # Arrange
+        user = FactoryBot.create(:user)
         sup = Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         p1 = ProductModel.create!(name: 'Bolo', weight: 50, width: 50, heigth: 50,
@@ -23,6 +25,7 @@ describe 'Usuário vê modelos de produtos' do
             depth: 30, sku: 'TV23-SMED-XPT12-KMT7', supplier: sup)
 
         # Act
+        login_as(user)
         visit root_path
         within('nav') do
         click_on 'Modelos de Produtos'

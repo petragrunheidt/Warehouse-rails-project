@@ -5,3 +5,5 @@
 <dt><%= Order.human_attribute_name('user_id') %>: <%= @order.user.name %> <%='<'+@order.user.email+'>'%></dt>
 <dt><%= Order.human_attribute_name('estimated_delivery_date') %>: <%= I18n.localize(@order.estimated_delivery_date) %></dt>
 </dl>
+
+<%= link_to 'Editar', edit_order_path(@order)%>

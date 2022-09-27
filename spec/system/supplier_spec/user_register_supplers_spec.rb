@@ -3,8 +3,10 @@ require 'rails_helper'
 describe 'Usuário acessa pagina de cadastrar fornecedores' do
     it 'com sucesso' do
         # Arrange
+        user = FactoryBot.create(:user)
 
         # Act
+        login_as(user)
         visit root_path
         click_on('Cadastrar novo Fornecedor')
 
@@ -20,8 +22,10 @@ describe 'Usuário acessa pagina de cadastrar fornecedores' do
 
     it 'e cadastra novo fornecedor com sucesso' do
         # Arrange
+        user = FactoryBot.create(:user)
 
         # Act
+        login_as(user)
         visit root_path
         click_on('Cadastrar novo Fornecedor')
         fill_in 'Nome corporativo', with: 'Petra'
@@ -47,8 +51,10 @@ describe 'Usuário acessa pagina de cadastrar fornecedores' do
 
     it 'e encontra um erro ao tentar cadastrar sem um dos campos' do
         # Arrange
+        user = FactoryBot.create(:user)
 
         # Act
+        login_as(user)
         visit root_path
         click_on('Cadastrar novo Fornecedor')
         fill_in 'Nome corporativo', with: 'Petra'

@@ -3,9 +3,11 @@ require 'rails_helper'
 describe 'Usuário acessa pagina de editar fornecedor' do
     it 'com sucesso' do
         # Arrange
+        user = FactoryBot.create(:user)
         Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
         # Act
+        login_as(user)
         visit root_path
         click_on('Fornecedores')
         click_on('Petra')
@@ -23,10 +25,12 @@ describe 'Usuário acessa pagina de editar fornecedor' do
 
     it 'e edita cadastro de fornecedor com sucesso' do
         # Arrange
+        user = FactoryBot.create(:user)
         Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
         # Act
+        login_as(user)
         visit root_path
         click_on('Fornecedores')
         click_on('Petra')
@@ -54,10 +58,12 @@ describe 'Usuário acessa pagina de editar fornecedor' do
 
     it 'e encontra um erro ao tentar cadastrar sem um dos campos' do
         # Arrange
+        user = FactoryBot.create(:user)
         Supplier.create!(corporate_name: 'PETR ltda', brand_name: 'Petra', registration_number: '0039419300013',
             city: 'Petropolis', state: 'SP', email: 'petramail', address: 'Rua da Petra')
 
         # Act
+        login_as(user)
         visit root_path
         visit root_path
         click_on('Fornecedores')

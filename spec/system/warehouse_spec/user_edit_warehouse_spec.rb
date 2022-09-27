@@ -3,15 +3,17 @@ require 'rails_helper'
 describe 'Usuário edita um galpão' do
     it 'a partir da página de detalhes' do
         # Arrange
-        warehouse = Warehouse.create!(name: 'R', code: 'RIO', address: 'rua', 
-                                        cep: '25930030', city: 'Rio', 
+        user = FactoryBot.create(:user)
+        warehouse = Warehouse.create!(name: 'R', code: 'RIO', address: 'rua',
+                                        cep: '25930030', city: 'Rio',
                                         area: 5320, description: 'descrição')
-        
+
         # Act
+        login_as(user)
         visit root_path
         click_on 'R'
         click_on 'Editar'
-        
+
         # Assert
         expect(page).to have_content('Editar dados do Galpão')
         expect(page).to have_field('Nome', with: 'R')
@@ -24,11 +26,13 @@ describe 'Usuário edita um galpão' do
     end
     it 'e edita dados do galpão com sucesso' do
         # Arrange
-        warehouse = Warehouse.create!(name: 'R', code: 'RID', address: 'rua', 
-            cep: '25930030', city: 'Rio', 
+        user = FactoryBot.create(:user)
+        warehouse = Warehouse.create!(name: 'R', code: 'RID', address: 'rua',
+            cep: '25930030', city: 'Rio',
             area: 5320, description: 'descrição')
 
         # Act
+        login_as(user)
         visit root_path
         click_on 'R'
         click_on 'Editar'
@@ -53,11 +57,13 @@ describe 'Usuário edita um galpão' do
     end
     it 'e mantém campos obrigatórios' do
         # Arrange
-        warehouse = Warehouse.create!(name: 'R', code: 'RID', address: 'rua', 
-            cep: '25930030', city: 'Rio', 
+        user = FactoryBot.create(:user)
+        warehouse = Warehouse.create!(name: 'R', code: 'RID', address: 'rua',
+            cep: '25930030', city: 'Rio',
             area: 5320, description: 'descrição')
 
         # Act
+        login_as(user)
         visit root_path
         click_on 'R'
         click_on 'Editar'

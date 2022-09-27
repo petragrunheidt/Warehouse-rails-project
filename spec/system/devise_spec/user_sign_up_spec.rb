@@ -6,7 +6,6 @@ describe 'Usuário se autentifica' do
 
     # Act
     visit root_path
-    click_on 'Entrar'
     click_on 'Criar uma conta'
     fill_in 'Nome', with: 'Petrinha'
     fill_in 'E-mail', with: 'petrinha@gmail.com'

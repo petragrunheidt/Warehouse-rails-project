@@ -1,4 +1,5 @@
 class SuppliersController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_supplier, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -6,7 +7,7 @@ class SuppliersController < ApplicationController
     end
 
     def show
-        @product_models = ProductModel.all.select {|prodmod| (prodmod.supplier == @supplier)}
+        @product_models = @supplier.product_models
     end
 
     def new

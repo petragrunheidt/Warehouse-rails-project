@@ -23,7 +23,7 @@ describe 'Usuário cadastra um pedido' do
     war = Warehouse.create!(name: 'Rozali', code: 'RIO', address: 'rua da petra',
       cep: '25930030', city: 'Rio de Janeiro',
       area: 5320, description: 'descrição')
-    allow(SecureRandom).to receive(:alphanumeric).with(5).and_return('12345')
+    allow(SecureRandom).to receive(:alphanumeric).with(7).and_return('1234567')
     # Act
       login_as(user)
       visit root_path

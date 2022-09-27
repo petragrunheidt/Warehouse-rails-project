@@ -12,7 +12,7 @@ class Order < ApplicationRecord
   private
 
   def generate_code
-    self.code = self.warehouse.code + SecureRandom.alphanumeric(5).upcase
+    self.code = self.warehouse.code + SecureRandom.alphanumeric(7).upcase
   end
 
   def estimated_delivery_date_is_future

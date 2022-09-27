@@ -3,8 +3,9 @@ require 'rails_helper'
 describe 'Usuário cadastra um galpão' do
     it 'a partir da tela inicial' do
         # Arrange
-
+        user = FactoryBot.create(:user)
         # Act
+        login_as(user)
         visit root_path
         click_on 'Cadastrar Galpão'
 
@@ -16,13 +17,14 @@ describe 'Usuário cadastra um galpão' do
         expect(page).to have_field('Endereço')
         expect(page).to have_field('CEP')
         expect(page).to have_field('Descrição')
-    
+
     end
 
     it 'com sucesso' do
         # Arrange
-
+        user = FactoryBot.create(:user)
         # Act
+        login_as(user)
         visit root_path
         click_on 'Cadastrar Galpão'
         fill_in 'Nome', with: 'Rio de Janeiro'
@@ -33,7 +35,7 @@ describe 'Usuário cadastra um galpão' do
         fill_in 'CEP', with: '20100000'
         fill_in 'Descrição', with: 'Galpão da zona portuária do Rio'
         click_on 'Enviar'
-        
+
         # Assert
         expect(current_path).to eq warehouse_path('1')
         expect(page).to have_content 'Rio de Janeiro'
@@ -43,8 +45,9 @@ describe 'Usuário cadastra um galpão' do
 
     it 'com dados incompletos' do
         # Arrange
-
+        user = FactoryBot.create(:user)
         # Act
+        login_as(user)
         visit root_path
         click_on 'Cadastrar Galpão'
         fill_in 'Código', with: ''
@@ -65,9 +68,11 @@ describe 'Usuário cadastra um galpão' do
         expect(page).to have_content 'Descrição não pode ficar em branco'
     end
     it 'e encontra um erro ao cadastrar um CEP invalido' do
-    # Arrange
+        # Arrange
+        user = FactoryBot.create(:user)
 
         # Act
+        login_as(user)
         visit root_path
         click_on 'Cadastrar Galpão'
         fill_in 'Nome', with: 'Rio de Janeiro'
