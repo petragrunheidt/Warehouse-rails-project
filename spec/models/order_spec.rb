@@ -54,7 +54,7 @@ RSpec.describe Order, type: :model do
       warehouse = FactoryBot.create(:warehouse)
       supplier = FactoryBot.create(:supplier)
       order = Order.new(warehouse: warehouse, supplier: supplier,
-        estimated_delivery_date: '2022-10-01', user: user)
+        estimated_delivery_date: Date.tomorrow, user: user)
       # Act
       order.save!
       result = order.code
@@ -69,9 +69,9 @@ RSpec.describe Order, type: :model do
       warehouse = FactoryBot.create(:warehouse)
       supplier = FactoryBot.create(:supplier)
       order1 = Order.create!(warehouse: warehouse, supplier: supplier,
-        estimated_delivery_date: '2022-10-01', user: user)
+        estimated_delivery_date: Date.tomorrow, user: user)
       order2 = Order.new(warehouse: warehouse, supplier: supplier,
-        estimated_delivery_date: '2022-10-02', user: user)
+        estimated_delivery_date: Date.tomorrow, user: user)
       # Act
       order2.save!
       result = order2.code

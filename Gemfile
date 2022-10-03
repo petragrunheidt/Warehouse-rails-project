@@ -17,7 +17,7 @@ gem "puma", "~> 5.0"
 
 gem 'devise'
 
-gem 'jquery-rails'
+
 
 gem 'factory_bot_rails'
 

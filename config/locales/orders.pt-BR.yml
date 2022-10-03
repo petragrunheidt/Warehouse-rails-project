@@ -11,3 +11,8 @@ pt-BR:
         user_id: 'Usuário Responsável'
         estimated_delivery_date: 'Data Prevista de Entrega'
         code: 'Código'
+        status:
+          one: 'Status'
+          pending: 'Pendente'
+          canceled: 'Cancelado'
+          delivered: 'Entregue'

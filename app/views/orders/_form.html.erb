@@ -23,10 +23,10 @@
 <%= ord.text_field :name %></dt>
 </div><div>
 <%= ord.label :warehouse_id, 'Galpão: '%>
-<%= ord.collection_select :warehouse_id, @warehouses, :id, :full_description %>
+<%= ord.collection_select :warehouse_id, @warehouses, :id, :full_description, prompt:true %>
 </div><div>
 <%= ord.label :supplier_id, 'Fornecedor: '%>
-<%= ord.collection_select :supplier_id, @suppliers, :id, :full_description %>
+<%= ord.collection_select :supplier_id, @suppliers, :id, :full_description, prompt:true %>
 </div><div>
 <%= ord.label :estimated_delivery_date, 'Data Prevista de Entrega: '%>
 <%= ord.date_field :estimated_delivery_date %>

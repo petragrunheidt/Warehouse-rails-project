@@ -37,6 +37,7 @@ describe 'Usuário cadastra um pedido' do
     expect(page).to have_content 'Pedido RIO12345'
     expect(page).to have_content 'Galpão Destino: RIO | Rozali'
     expect(page).to have_content 'Fornecedor: PETR ltda'
+    expect(page).to have_content 'Status do Pedido: Pendente'
     expect(page).to have_content 'Usuário Responsável: Petra <petramail@gmail.com>'
     expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(Date.tomorrow)}"
     expect(page).not_to have_content 'PITR ltda'
@@ -58,5 +59,5 @@ describe 'Usuário cadastra um pedido' do
   expect(page).to have_content 'Todos os campos devem ser preenchidos'
   expect(page).to have_content 'Data Prevista de Entrega não pode ficar em branco'
   end
-  
+
 end
