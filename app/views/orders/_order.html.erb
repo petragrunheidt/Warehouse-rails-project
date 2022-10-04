@@ -3,5 +3,5 @@
     <dt><%= Order.human_attribute_name('warehouse_id') %>: <%= order.warehouse.full_description %></dt>
     <dt><%= Order.human_attribute_name('supplier_id') %>: <%= order.supplier.full_description %></dt>
     <dt><%= Order.human_attribute_name('estimated_delivery_date') %>: <%= I18n.localize(order.estimated_delivery_date) %></dt>
-    <dt><%= Order.human_attribute_name('status') %>: <%= order.status %></dt>
+    <dt> <%= "#{ Order.human_attribute_name 'status' }: #{ t(order.status) }" %></dt>
 </dl>

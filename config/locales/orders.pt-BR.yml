@@ -1,4 +1,7 @@
 pt-BR:
+  pending: "Pendente"
+  canceled: "Cancelado"
+  delivered: "Entregue"
   activerecord:
     models:
       order:
@@ -13,6 +16,4 @@ pt-BR:
         code: 'Código'
         status:
           one: 'Status'
-          pending: 'Pendente'
-          canceled: 'Cancelado'
-          delivered: 'Entregue'
+
