@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_order_and_check_user, only: [:show, :edit, :update]
+  before_action :set_order_and_check_user, only: [:show, :edit, :update, :set_pending, :set_canceled, :set_delivered]
   def index
     @orders = current_user.orders
   end
@@ -48,16 +48,19 @@ class OrdersController < ApplicationController
       render :new
     end
   end
-  def pending
-
+  def set_pending
+    @order.pending!
+    return redirect_to @order, notice: 'Status do Pedido atualizado.'
   end
 
-  def received
-
+  def set_delivered
+    @order.delivered!
+    return redirect_to @order, notice: 'Status do Pedido atualizado.'
   end
 
-  def canceled
-
+  def set_canceled
+    @order.canceled!
+    return redirect_to @order, notice: 'Status do Pedido atualizado.'
   end
 
   private

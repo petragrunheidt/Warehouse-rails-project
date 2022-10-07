@@ -5,7 +5,7 @@ FactoryBot.define do
     width { 30 }
     heigth { 30 }
     depth { 30 }
-    sku { 'GL23-SMED-XPT12-XLMR '}
+    sku { SecureRandom.alphanumeric(20)}
     supplier
   end
 end

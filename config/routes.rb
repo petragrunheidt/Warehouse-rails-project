@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :product_models, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   resources :orders, only: [:index, :show, :new, :create, :edit, :update] do
+    resources :order_items, only: [:new, :create]
     get 'search', on: :collection
     patch :set_pending, on: :member
     patch :set_canceled, on: :member
