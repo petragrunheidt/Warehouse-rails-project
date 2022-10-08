@@ -38,18 +38,4 @@ describe 'Usuário edita pedido' do
     expect(current_path).to eq root_path
     expect(page).to have_content "Permissão negada, pedido de outro usuário"
   end
-  it 'e edita o status de pendente para entregue' do
-    # Arrange
-    user = FactoryBot.create(:user)
-    order = FactoryBot.create(:order, user: user)
-    # Act
-    login_as(user)
-    visit root_path
-    click_on 'Meus Pedidos'
-    click_on order.code
-    click_on 'Marcar como Entregue'
-    # Assert
-    expect(page).to have_content 'Status do Pedido atualizado.'
-    expect(page).to have_content 'Status: Entregue'
-  end
 end

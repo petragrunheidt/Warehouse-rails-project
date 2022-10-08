@@ -48,13 +48,15 @@ class OrdersController < ApplicationController
       render :new
     end
   end
-  def set_pending
-    @order.pending!
-    return redirect_to @order, notice: 'Status do Pedido atualizado.'
-  end
 
   def set_delivered
     @order.delivered!
+    @order.order_items.each do |item|
+      item.quantity.times do
+        StockProduct.create!(order: @order, product_model: item.product_model, warehouse: @order.warehouse)
+      end
+    end
+
     return redirect_to @order, notice: 'Status do Pedido atualizado.'
   end
 
