@@ -3,12 +3,12 @@ class StockProduct < ApplicationRecord
   belongs_to :order
   belongs_to :product_model
 
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   private
 
   def generate_code
-    self.serial_number = SecureRandom.random_number(1000000000000..10000000000000).to_s
+    self.serial_number = SecureRandom.random_number(10**19..10**20).to_s
   end
 
 end

@@ -79,5 +79,17 @@ RSpec.describe Order, type: :model do
       # Assert
       expect(result).not_to eq order1.code
     end
+    it 'and must not be modified' do
+      # Arrange
+      order = FactoryBot.create(:order)
+      original_code = order.code
+
+      # Act
+      order.update!(estimated_delivery_date: 1.month.from_now)
+
+      # Assert
+      expect(order.code).to eq original_code
+
+    end
   end
 end

@@ -8,14 +8,14 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :product_models, through: :order_items
 
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   validate :estimated_delivery_date_is_future
 
   private
 
   def generate_code
-    self.code = self.warehouse.code + SecureRandom.alphanumeric(7).upcase
+    (self.code = self.warehouse.code + SecureRandom.alphanumeric(7).upcase)
   end
 
   def estimated_delivery_date_is_future
