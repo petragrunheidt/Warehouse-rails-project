@@ -10,4 +10,3 @@ FactoryBot.define do
   end
 end
 
-#FactoryBot.create(:product_model)
