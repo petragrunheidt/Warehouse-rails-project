@@ -13,13 +13,31 @@
 <li><strong>Descrição: </strong><%= @warehouse.description %></li>
 </ul>
 </div>
-
+<section id="stock_products">
 <div>
     <h2>Itens em Estoque</h2>
     <% @stocks.each_pair do |product, count| %>
-        <%= "#{count}x #{product.sku}" %>
+    <ul>
+        <li><%= "#{count}x #{product.sku}" %></li>
+    </ul>
     <% end %>
 </div>
+</section>
+
+<section id="stock_destination">
+<div>
+    <h2>Saída de Estoque</h2>
+    <%= form_with(url: warehouse_stock_product_destinations_path(@warehouse)) do |spd| %>
+    <%= spd.label :product_model_id, "Item para Saída"  %>
+    <%= spd.collection_select :product_model_id, @product_models, :id, :sku %>
+    <%= spd.label :recipient, 'Destinatário' %>
+    <%= spd.text_field :recipient%>
+    <%= spd.label :address, "Endereço Destino" %>
+    <%= spd.text_field :address%>
+    <%= spd.submit %>
+    <% end %>
+</div>
+</section>
 
 <%= link_to 'Editar', edit_warehouse_path(@warehouse.id) %>
 <%= link_to 'Voltar', root_path %>

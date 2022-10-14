@@ -22,4 +22,18 @@ RSpec.describe StockProduct, type: :model do
         expect(result).to eq original_serial_number
     end
   end
+
+  describe '#available?' do
+    it 'true if there is no destination' do
+      stock_product = FactoryBot.create(:stock_product)
+
+      expect(stock_product.available?).to eq true
+    end
+    it 'false if there is a destination' do
+      stock_product = FactoryBot.create(:stock_product)
+      stock_product.create_stock_product_destination!(recipient: 'Ala', address: "rua da la")
+
+      expect(stock_product.available?).to eq false
+    end
+  end
 end
